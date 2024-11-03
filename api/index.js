@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 // Or specify allowed origins:
-app.use(cors({ origin: 'http://localhost:5173' }));
+// app.use(cors({ origin: 'http://localhost:5173' }));
 
 //Root endpoint
 app.get('/', (req, res) => {
