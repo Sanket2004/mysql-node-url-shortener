@@ -66,9 +66,9 @@ router.post("/register", (req, res) => {
     try {
 
         //checking for existing user
-        const existingUser = "SELECT * FROM users WHERE email = ?";
+        const existingUser = "SELECT * FROM users WHERE email = ? OR phone = ?";
 
-        db.query(existingUser, (email), async (err, result) => {
+        db.query(existingUser, [email, phone], async (err, result) => {
 
             if (err) {
                 console.error("Database query error:", err);
@@ -77,7 +77,7 @@ router.post("/register", (req, res) => {
 
 
             if (result.length > 0) {
-                return res.status(400).json({ message: "Email already exists" });
+                return res.status(400).json({ message: "Email or Phone already exists" });
             }
 
 

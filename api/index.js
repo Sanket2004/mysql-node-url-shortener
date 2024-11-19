@@ -15,6 +15,8 @@ app.use(cors());
 // Or specify allowed origins:
 app.use(cors({ origin: 'https://goes2.vercel.app' }));
 
+// app.use(cors({ origin: 'http://localhost:5173' }));
+
 //Root endpoint
 app.get('/', (req, res) => {
     res.json("This is the backend.");
