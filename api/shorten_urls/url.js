@@ -62,7 +62,7 @@ router.post("/shorten", authenticate, (req, res) => {
         return res.status(500).json({ message: err.sqlMessage });
       }
 
-      const shortUrl = `${req.protocol}://${req.get("host")}/url/${shortCode}`;
+      const shortUrl = shortCode;
       res.status(201).json({ shortUrl });
     });
   });
